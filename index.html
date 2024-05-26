@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no" />
+
+
+    <title>Mobuild | BusinessTap</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: "Inter", sans-serif;
+            font-optical-sizing: auto;
+            font-style: normal;
+            font-variation-settings: "slnt" 0;
+
+        }
+
+        .main {
+            width: 100vw;
+            height: 70vh;
+            background-color: white;
+            display: flex;
+
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .main img {
+            width: 45%;
+        }
+
+        .buttons {
+            height: 50vh;
+            width: 100vw;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+
+            /* background-color: red; */
+        }
+
+        .box {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            background-color: #58585A;
+            border-radius: 10px;
+            /* width: 70vw; */
+            /* height: 12vh; */
+            padding: 15px;
+            opacity: 0;
+        }
+
+        .btn {
+            background-color: #FCB040;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 5px;
+            color: white;
+            border-radius: 10px;
+            border: 3px solid #FCB040;
+            font-weight: 500;
+            transition: 0.3s;
+            font-size: 20px;
+            opacity: 0;
+        }
+
+        .btn:hover {
+            background-color: rgba(0, 0, 0, 0);
+            color: #FCB040;
+
+            cursor: pointer;
+        }
+
+        #goDown {
+            border: 3px solid black;
+
+            position: absolute;
+            bottom: 10px;
+            font-size:40px;
+            border-radius: 100px;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        @media only screen and (max-width: 768px) {
+            .main {
+            width: 100vw;
+            height: 70vh;
+            background-color: white;
+            display: flex;
+
+            justify-content: center;
+            align-items: center;
+        }
+
+        .main img {
+            width: 75%;
+        }
+
+        .buttons {
+            height: 50vh;
+            width: 100vw;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            flex-direction: column;
+
+            /* background-color: red; */
+        }
+
+        .box {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            background-color: #58585A;
+            border-radius: 10px;
+            /* width: 70vw; */
+            /* height: 12vh; */
+            padding: 15px;
+            opacity: 0;
+        }
+
+        .btn {
+            background-color: #FCB040;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 5px;
+            color: white;
+            border-radius: 10px;
+            border: 3px solid #FCB040;
+            font-weight: 500;
+            transition: 0.3s;
+            font-size: 20px;
+            opacity: 0;
+        }
+
+        .btn:hover {
+            background-color: rgba(0, 0, 0, 0);
+            color: #FCB040;
+
+            cursor: pointer;
+        }
+        }
+
+        
+    </style>
+
+    <script>
+        window.addEventListener('scroll', function () {
+            let num = (window.scrollY / window.innerHeight) * 20;
+
+            console.log(num);
+
+            document.getElementById('image').style.webkitFilter = 'blur(' + num + 'px)';
+            document.getElementById('btn1').style.opacity = Math.min(num / 5, 1);
+            document.getElementById('btn2').style.opacity = Math.min(num / 5, 1);
+            document.getElementById('box1').style.opacity = Math.min(num * 2, 1);
+            document.getElementById('box2').style.opacity = Math.min(num * 2, 1);
+            
+            document.getElementById('goDown').style.opacity = Math.min(1 - num / 5, 1);
+
+
+        })
+    </script>
+</head>
+
+
+<body>
+    <div class="main">
+        <img src="logo.png" id="image">
+        <div id="goDown" onclick="document.getElementById('end').scrollIntoView();">↓</div>
+
+
+    </div>
+    <div class="buttons">
+        <a href="here"></a>
+        <div class="box" id="box1">
+
+
+            <div class="btn" id="btn1" onclick="window.open()">View Business Card</div>
+        </div>
+
+        <div class="box" id="box2">
+
+            <div class="btn" id="btn2" onclick="window.open('https://www.mobuild.com.au/')">View Website</div>
+        </div>
+
+        <div id="end"></div>
+
+    </div>
+
+    <!-- <div class="main"></div> -->
+
+</body>
+
+</html>
